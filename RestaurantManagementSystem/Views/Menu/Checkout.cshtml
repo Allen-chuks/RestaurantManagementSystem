@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Checkout";
+}
+
+<h2>Checkout</h2>
+<form method="post">
+    <label>Name</label>
+    <input name="customerName" class="form-control" required />
+
+    <label>Phone</label>
+    <input name="customerPhone" class="form-control" required />
+
+    <label>Address</label>
+    <textarea name="customerAddress" class="form-control"></textarea>
+
+    <br />
+    <button type="submit" class="btn btn-success">Place Order</button>
+</form>

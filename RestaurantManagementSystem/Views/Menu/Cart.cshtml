@@ -1,0 +1,39 @@
+﻿@model List<RestaurantManagementSystem.Models.FoodItem>
+@{
+    ViewData["Title"] = "Your Cart";
+}
+
+<h2>Your Cart</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Food Item</th>
+                <th>Price (₦)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@Model[i].Name</td>
+                    <td>@Model[i].Price.ToString("0.00")</td>
+                    <td>
+                        <a asp-action="RemoveFromCart" asp-route-id="@i" class="btn btn-danger btn-sm">Remove</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h4>Total: ₦@Model.Sum(x => x.Price).ToString("0.00")</h4>
+
+    <a asp-controller="Menu" asp-action="Checkout" class="btn btn-success">Proceed to Checkout</a>
+}
