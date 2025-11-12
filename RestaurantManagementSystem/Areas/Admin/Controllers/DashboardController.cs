@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RestaurantManagementSystem.Areas.Admin.Controllers
 {
-    //[Area("Admin")]
+    [Area("Admin")]
     //[Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
